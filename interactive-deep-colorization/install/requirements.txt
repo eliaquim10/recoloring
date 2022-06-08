@@ -1,0 +1,5 @@
+protobuf  
+scikit-learn 
+scikit-image
+pyqt==4.11 
+qdarkstyle
