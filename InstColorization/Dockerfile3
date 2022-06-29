@@ -1,0 +1,35 @@
+FROM continuumio/miniconda3
+
+WORKDIR /opt/notebooks
+
+# Create the environment:
+RUN git clone https://github.com/ericsujw/InstColorization .
+# RUN ls
+# COPY env.yml .
+
+# Activate the environment, and make sure it's activated:
+# RUN conda env create --file env.yml
+# RUN apt install gcc
+RUN apt update -y 
+RUN apt upgrade -y 
+RUN conda env create -f env.yml
+RUN conda install -n instacolorization ipykernel --update-deps --force-reinstall
+# RUN echo ["python", "-V"]
+RUN apt install gcc -y
+RUN activate instacolorization
+
+# RUN conda run pip install -U 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI'
+# RUN conda run pip install dominate==2.4.0
+# RUN conda run pip install detectron2==0.1.2 -f https://dl.fbaipublicfiles.com/detectron2/wheels/cu101/index.html
+
+RUN sh scripts/install.sh
+
+RUN sh scripts/prepare_cocostuff.sh
+
+RUN sh scripts/download_model.sh
+
+RUN sh scripts/prepare_train_box.sh
+
+RUN sh scripts/train.sh
+
+ENTRYPOINT ["python"]
