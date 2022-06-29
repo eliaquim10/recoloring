@@ -12,4 +12,5 @@ RUN ./docker_conda_install.sh
 COPY . /app
 WORKDIR /app
 
-CMD ["python","ideepcolor_docker.py"]
+ENTRYPOINT ["python"]
+# CMD ["python","ideepcolor_docker.py"]

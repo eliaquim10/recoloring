@@ -1,5 +1,5 @@
-from PyQt4.QtCore import *
-from PyQt4.QtGui import *
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
 from . import gui_draw
 from . import gui_vis
 from . import gui_gamut

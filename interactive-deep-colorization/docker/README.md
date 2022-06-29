@@ -24,3 +24,8 @@ Then:
     docker run -e DISPLAY=host.docker.internal:0 colorize
     
 in order to run the app!
+
+docker build -t colorize .
+docker run -i --name zhang --gpus all colorize
+docker start zhang
+Dentro do VS Code do container: conda install -n env -c pytorch pytorch torchvision cudatoolkit=9.0 

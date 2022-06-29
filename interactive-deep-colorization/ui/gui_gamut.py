@@ -1,6 +1,6 @@
 import cv2
-from PyQt4.QtCore import *
-from PyQt4.QtGui import *
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
 from data import lab_gamut
 import numpy as np
 
