@@ -37,3 +37,4 @@ ENTRYPOINT ["python"]
 # docker build -t colorization .
 
 # docker run -i --name et --gpus all entity_relation
+# docker system prune
